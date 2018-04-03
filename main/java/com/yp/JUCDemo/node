@@ -1,0 +1,6 @@
+  CountDownLaunch & CyclicBarrier
+
+  1 barrier可重用
+  2 countDownLauch counter-1 之后不会暂停当前任务 而 barrier 是暂停当前任务并且等待
+  3 barrier可重用  launch不行
+  4 lauch 可以看做特殊的barrier

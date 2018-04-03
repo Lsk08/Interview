@@ -1,0 +1,28 @@
+1 Reference是java的一个抽象类  java.lang.ref.Reference
+有3个子类 SoftReference、WeakReference、PhantomReference
+
+2 关于回收
+如果jvm发现对象没有强引用
+1 在OOM之前保证回收所有的软引用
+2 随时回收所有的弱引用(和虚引用)
+=====此时只是回收了【引用】
+3 然后 该对象 就会处于 不可达状态 = 随后被回收
+
+也就是先回收 Reference 在回收对象
+例如 String s= new String("s"); s=null; 应该是 先把指向"s"的引用s断开，被回收  然后"s"不可达被回收
+
+4 API      SoftReference<String> str=new SoftReference<String>("aa"); 的意义是【创建了一个指向 "aa"的软引用】 对比于 String s=new String("aa");
+
+5 强引用都是 s=null 先回收ref 在回收对象  而 soft、weak 是 根据对象的可达性 只能通过soft、weak达到 反过来回收引用  然后达到回收对象的目的
+也就是 强引用 = 手动清除ref -> 回收   其他 = 可达性判断 -> 回收ref -> 回收对象
+也可以理解为 强引用不能通过 可达性判断自动清除   也就是 统一为后者的回收流程
+也就是soft、weak是通过可达性判断 + 自动回收reference 实现快速回收的
+
+
+6 可达性判断
+只要一个obj只能通过soft、weak引用获得，那么就会清除这个obj的soft、weak Ref 哪怕这个Ref还被其他强引用持有
+例如  private Map<String, SoftReference<Bitmap>> imageCache = new HashMap<String, SoftReference<Bitmap>>();
+ 虽然 imageCache 强引用了 HashMap 但是 map中的value是一个softReference 所以 这个SoftReference还是可能被回收
+ 这也就是一个 避免OOM的map
+
+ 7 所以所谓的可达性链只能在【全都是】强引用的时候才成立  只要有单独的Soft、Weak可能被回收
