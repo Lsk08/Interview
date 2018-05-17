@@ -1,0 +1,26 @@
+	<resultMap type="com.ifsage.entity.UserFeedBackDO" id="userFeedBackMap">
+		<id property="id" column="id"/>
+		<result property="userName" column="UserName"></result>
+
+		<!-- list -->
+		<collection ofType="com.ifsage.entity.FeedBackDO" property="feedBacks">
+			<id property="id" column="Id"/>
+			<result property="feedBackMessage" column="FeedBackMessage"/>
+			<result property="feedBackPicUrl" column="feedBackPicUrl"/>
+			<result property="publishTime" column="publishTime"/>
+		</collection>
+	</resultMap>
+
+	<select id="getUserFeedBack" parameterType="java.lang.Integer" resultMap="userFeedBackMap">
+		select * from App_UserBaseInfo au,App_FeedBack af where au.id=af.userId and au.id=#{id}
+	</select>
+
+	////////////////////////
+	public class UserFeedBackDO {
+
+        private Integer id;
+        private String userName;
+
+        List<FeedBackDO> feedBacks;
+
+    }

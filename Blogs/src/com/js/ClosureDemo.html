@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    var a=1;
+    function f1() {
+        alert(a);
+    }
+f1();
+
+//    function f2() {
+//        var a2=1;
+//    }
+//    f2();
+//    alert(a2);
+
+    function f3() {
+        a3=3;
+    }
+    f3();
+    alert(a3);
+
+    //函数内部可以访问全局变量
+    //但是函数外部不能访问局部变量
+
+    function f2() {
+            var a2='f23';
+            function f3() {
+                return a2;
+            }
+            return f3;
+        }
+        alert(f2()());
+</script>
+<body>
+
+</body>
+</html>

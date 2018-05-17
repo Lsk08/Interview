@@ -64,7 +64,7 @@ public class DateToLocalDateTimeDemo {
         java.util.Date date = Date.from(instant);
     }
 
-    public void diffDays(){
+    public static void diffDays(){
         LocalDate startDate = LocalDate.of(1993, Month.OCTOBER, 19);
         System.out.println("开始时间  : " + startDate);
 
@@ -76,12 +76,12 @@ public class DateToLocalDateTimeDemo {
     }
 
     public static void main(String[] args) {
-        LocalDateTime now=LocalDateTime.now();
-        System.out.println(Instant.now().toEpochMilli());
-        System.out.println(new Date().getTime());
-        System.out.println(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+//        LocalDateTime now=LocalDateTime.now();
+//        System.out.println(Instant.now().toEpochMilli());
+//        System.out.println(new Date().getTime());
+//        System.out.println(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
-
+        diffDays();
 
     }
 }

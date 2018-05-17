@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var arr1=new Array();
+    arr1[0]='hello';
+    arr1[1]='world';
+
+    //数组长度可变  并且key也可以自定义
+    var arr2=new Array(2);
+    arr2['name']='xiaoming';
+    arr2['age']=12;
+    arr2['married']=false;
+
+    //创建并初始化
+    var arr3=new Array('hello','world');
+    var arr4=[1,true,'hello'];
+
+    //遍历 for in   for in 的好处在于 无视key的类型  例如arr2 就无法使用下标索引遍历
+//    for(var i in arr1){
+//        alert(arr1[i]);
+//    }
+
+    for(var i=0;i<arr4.length;i++){
+        alert(arr4[i]);
+    }
+
+</script>
+<body>
+
+</body>
+</html>

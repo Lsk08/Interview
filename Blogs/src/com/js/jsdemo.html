@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    //js变量 = 基本类型 + 对象型
+    //基本类型 = Number、Boolean、String、null、undefined
+    //对象型 = Object、Array
+
+    //js基于浏览器  变量类型由js执行器决定
+    var a = 10;
+    var b = a;
+    b = 20;
+    alert("a="+a);//打印a=10
+
+    var b1 = true;
+    var b2 = b1;
+    b2 = false;
+    alert("b1="+b1);//打印b1=true
+
+//引用类型 可以包含任意数量的属性和元素  并且采用内存地址的引用  有副作用
+    var obj1 = new Object();
+    var obj2 = obj1;
+    obj2.name = "孤傲苍狼";
+    alert(obj1.name); // 孤傲苍狼
+
+</script>
+<body>
+
+</body>
+</html>
