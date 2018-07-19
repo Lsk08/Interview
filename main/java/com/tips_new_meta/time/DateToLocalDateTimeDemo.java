@@ -79,9 +79,13 @@ public class DateToLocalDateTimeDemo {
 //        LocalDateTime now=LocalDateTime.now();
 //        System.out.println(Instant.now().toEpochMilli());
 //        System.out.println(new Date().getTime());
-//        System.out.println(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println(DateTimeFormatter.ofPattern("yyyyMMdd").format(LocalDate.now()));
+//
+//        diffDays();
 
-        diffDays();
+        String s="中国工商银行长治市分行业务处理中心";
+        System.out.println(s.substring(0,s.indexOf("银行")));
 
     }
 }

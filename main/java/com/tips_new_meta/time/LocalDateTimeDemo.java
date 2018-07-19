@@ -1,9 +1,6 @@
 package com.tips_new_meta.time;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -32,6 +29,7 @@ public class LocalDateTimeDemo {
         LocalDateTime now3=LocalDateTime.now();
         LocalDateTime now4=LocalDateTime.of(2017,12,24,12,0);
         System.out.println(Period.between(now4.toLocalDate(),now3.toLocalDate()).getDays());
+        System.out.println(Duration.between(now4.toLocalDate(),now3.toLocalDate()).toDays());
 
         //leap year
         System.out.println(LocalDate.of(2008,12,12).isLeapYear());
